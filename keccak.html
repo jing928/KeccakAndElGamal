@@ -3,48 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <title>Keccak-f[25]</title>
+    <style>
+        table {
+            text-align: center
+        }
+    </style>
 </head>
 <body>
 <div>
-    <p>Input Matrix</p>
+    <p>Original Matrix</p>
     <table>
-        <tbody>
         <tr>
-            <td><input type="number" min="0" max="1" id="A04" value="0"></td>
-            <td><input type="number" min="0" max="1" id="A14" value="0"></td>
-            <td><input type="number" min="0" max="1" id="A24" value="0"></td>
-            <td><input type="number" min="0" max="1" id="A34" value="0"></td>
-            <td><input type="number" min="0" max="1" id="A44" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original04" value="0"></td>
+            <td><input type="number" min="0" max="1" id="Original14" value="0"></td>
+            <td><input type="number" min="0" max="1" id="Original24" value="0"></td>
+            <td><input type="number" min="0" max="1" id="Original34" value="0"></td>
+            <td><input type="number" min="0" max="1" id="Original44" value="1"></td>
         </tr>
         <tr>
-            <td><input type="number" min="0" max="1" id="A03" value="0"></td>
-            <td><input type="number" min="0" max="1" id="A13" value="0"></td>
-            <td><input type="number" min="0" max="1" id="A23" value="0"></td>
-            <td><input type="number" min="0" max="1" id="A33" value="1"></td>
-            <td><input type="number" min="0" max="1" id="A43" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original03" value="0"></td>
+            <td><input type="number" min="0" max="1" id="Original13" value="0"></td>
+            <td><input type="number" min="0" max="1" id="Original23" value="0"></td>
+            <td><input type="number" min="0" max="1" id="Original33" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original43" value="1"></td>
         </tr>
         <tr>
-            <td><input type="number" min="0" max="1" id="A02" value="0"></td>
-            <td><input type="number" min="0" max="1" id="A12" value="0"></td>
-            <td><input type="number" min="0" max="1" id="A22" value="1"></td>
-            <td><input type="number" min="0" max="1" id="A32" value="1"></td>
-            <td><input type="number" min="0" max="1" id="A42" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original02" value="0"></td>
+            <td><input type="number" min="0" max="1" id="Original12" value="0"></td>
+            <td><input type="number" min="0" max="1" id="Original22" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original32" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original42" value="1"></td>
         </tr>
         <tr>
-            <td><input type="number" min="0" max="1" id="A01" value="0"></td>
-            <td><input type="number" min="0" max="1" id="A11" value="1"></td>
-            <td><input type="number" min="0" max="1" id="A21" value="1"></td>
-            <td><input type="number" min="0" max="1" id="A31" value="1"></td>
-            <td><input type="number" min="0" max="1" id="A41" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original01" value="0"></td>
+            <td><input type="number" min="0" max="1" id="Original11" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original21" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original31" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original41" value="1"></td>
         </tr>
         <tr>
-            <td><input type="number" min="0" max="1" id="A00" value="1"></td>
-            <td><input type="number" min="0" max="1" id="A10" value="1"></td>
-            <td><input type="number" min="0" max="1" id="A20" value="1"></td>
-            <td><input type="number" min="0" max="1" id="A30" value="1"></td>
-            <td><input type="number" min="0" max="1" id="A40" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original00" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original10" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original20" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original30" value="1"></td>
+            <td><input type="number" min="0" max="1" id="Original40" value="1"></td>
         </tr>
-        </tbody>
+    </table>
+</div>
+
+<div>
+    <p>𝛳 Step Mapping</p>
+    <table>
+        <tr>
+            <th>Input</th>
+            <th>C[x]</th>
+            <th>D[x]</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ThetaIn04" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn14" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn24" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn34" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn44" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ThetaIn03" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn13" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn23" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn33" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn43" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ThetaIn02" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn12" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn22" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn32" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn42" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ThetaIn01" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn11" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn21" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn31" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn41" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ThetaIn00" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn10" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn20" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn30" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaIn40" readonly></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="C0" readonly></td>
+                        <td><input type="number" min="0" max="1" id="C1" readonly></td>
+                        <td><input type="number" min="0" max="1" id="C2" readonly></td>
+                        <td><input type="number" min="0" max="1" id="C3" readonly></td>
+                        <td><input type="number" min="0" max="1" id="C4" readonly></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="D0" readonly></td>
+                        <td><input type="number" min="0" max="1" id="D1" readonly></td>
+                        <td><input type="number" min="0" max="1" id="D2" readonly></td>
+                        <td><input type="number" min="0" max="1" id="D3" readonly></td>
+                        <td><input type="number" min="0" max="1" id="D4" readonly></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ThetaOut04" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut14" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut24" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut34" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut44" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ThetaOut03" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut13" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut23" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut33" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut43" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ThetaOut02" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut12" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut22" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut32" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut42" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ThetaOut01" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut11" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut21" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut31" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut41" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ThetaOut00" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut10" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut20" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut30" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ThetaOut40" readonly></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
     </table>
 </div>
 
