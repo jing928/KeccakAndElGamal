@@ -256,5 +256,185 @@
     </table>
 </div>
 
+<div>
+    <p><strong>𝛸 Step Mapping</strong></p>
+    <table>
+        <tr>
+            <th>Original B[x, y]</th>
+            <th>⊕</th>
+            <th>((B[x+1, y] ⊕ 1)</th>
+            <th>AND</th>
+            <th>B[x+2, y])</th>
+            <th>➱</th>
+            <th>New A[x, y]</th>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ChiIn04" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn14" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn24" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn34" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn44" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ChiIn03" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn13" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn23" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn33" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn43" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ChiIn02" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn12" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn22" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn32" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn42" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ChiIn01" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn11" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn21" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn31" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn41" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ChiIn00" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn10" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn20" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn30" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiIn40" readonly></td>
+                    </tr>
+                </table>
+            </td>
+            <td>➱</td>
+            <td>
+                <table>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ChiOut04" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut14" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut24" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut34" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut44" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ChiOut03" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut13" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut23" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut33" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut43" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ChiOut02" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut12" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut22" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut32" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut42" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ChiOut01" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut11" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut21" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut31" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut41" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="ChiOut00" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut10" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut20" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut30" readonly></td>
+                        <td><input type="number" min="0" max="1" id="ChiOut40" readonly></td>
+                    </tr>
+                </table>
+            </td>
+            <td>➱</td>
+            <td>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="b200"></td>
+                        <td><input type="number" min="0" max="1" id="b201"></td>
+                        <td><input type="number" min="0" max="1" id="b202"></td>
+                        <td><input type="number" min="0" max="1" id="b203"></td>
+                        <td><input type="number" min="0" max="1" id="b204"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="b210"></td>
+                        <td><input type="number" min="0" max="1" id="b211"></td>
+                        <td><input type="number" min="0" max="1" id="b212"></td>
+                        <td><input type="number" min="0" max="1" id="b213"></td>
+                        <td><input type="number" min="0" max="1" id="b214"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="b220"></td>
+                        <td><input type="number" min="0" max="1" id="b221"></td>
+                        <td><input type="number" min="0" max="1" id="b222"></td>
+                        <td><input type="number" min="0" max="1" id="b223"></td>
+                        <td><input type="number" min="0" max="1" id="b224"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="b230"></td>
+                        <td><input type="number" min="0" max="1" id="b231"></td>
+                        <td><input type="number" min="0" max="1" id="b232"></td>
+                        <td><input type="number" min="0" max="1" id="b233"></td>
+                        <td><input type="number" min="0" max="1" id="b234"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="b240"></td>
+                        <td><input type="number" min="0" max="1" id="b241"></td>
+                        <td><input type="number" min="0" max="1" id="b242"></td>
+                        <td><input type="number" min="0" max="1" id="b243"></td>
+                        <td><input type="number" min="0" max="1" id="b244"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>➱</td>
+            <td>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="a00"></td>
+                        <td><input type="number" min="0" max="1" id="a01"></td>
+                        <td><input type="number" min="0" max="1" id="a02"></td>
+                        <td><input type="number" min="0" max="1" id="a03"></td>
+                        <td><input type="number" min="0" max="1" id="a04"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="a10"></td>
+                        <td><input type="number" min="0" max="1" id="a11"></td>
+                        <td><input type="number" min="0" max="1" id="a12"></td>
+                        <td><input type="number" min="0" max="1" id="a13"></td>
+                        <td><input type="number" min="0" max="1" id="a14"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="a20"></td>
+                        <td><input type="number" min="0" max="1" id="a21"></td>
+                        <td><input type="number" min="0" max="1" id="a22"></td>
+                        <td><input type="number" min="0" max="1" id="a23"></td>
+                        <td><input type="number" min="0" max="1" id="a24"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="a30"></td>
+                        <td><input type="number" min="0" max="1" id="a31"></td>
+                        <td><input type="number" min="0" max="1" id="a32"></td>
+                        <td><input type="number" min="0" max="1" id="a33"></td>
+                        <td><input type="number" min="0" max="1" id="a34"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="a40"></td>
+                        <td><input type="number" min="0" max="1" id="a41"></td>
+                        <td><input type="number" min="0" max="1" id="a42"></td>
+                        <td><input type="number" min="0" max="1" id="a43"></td>
+                        <td><input type="number" min="0" max="1" id="a44"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
 </body>
 </html>
