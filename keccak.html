@@ -10,8 +10,9 @@
     </style>
 </head>
 <body>
+<h1>Keccak-f[25]</h1>
 <div>
-    <p>Original Matrix</p>
+    <p><strong>Original Matrix</strong></p>
     <table>
         <tr>
             <td><input type="number" min="0" max="1" id="Original04" value="0"></td>
@@ -52,7 +53,7 @@
 </div>
 
 <div>
-    <p>𝛳 Step Mapping</p>
+    <p><strong>𝛳 Step Mapping</strong></p>
     <table>
         <tr>
             <th>Input</th>
@@ -158,6 +159,96 @@
                         <td><input type="number" min="0" max="1" id="ThetaOut20" readonly></td>
                         <td><input type="number" min="0" max="1" id="ThetaOut30" readonly></td>
                         <td><input type="number" min="0" max="1" id="ThetaOut40" readonly></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <p><strong>π Step Mapping</strong></p>
+    <table>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="PiIn04" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn14" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn24" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn34" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn44" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="PiIn03" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn13" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn23" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn33" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn43" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="PiIn02" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn12" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn22" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn32" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn42" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="PiIn01" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn11" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn21" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn31" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn41" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="PiIn00" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn10" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn20" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn30" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiIn40" readonly></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="PiOut04" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut14" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut24" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut34" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut44" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="PiOut03" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut13" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut23" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut33" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut43" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="PiOut02" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut12" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut22" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut32" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut42" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="PiOut01" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut11" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut21" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut31" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut41" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="1" id="PiOut00" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut10" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut20" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut30" readonly></td>
+                        <td><input type="number" min="0" max="1" id="PiOut40" readonly></td>
                     </tr>
                 </table>
             </td>
