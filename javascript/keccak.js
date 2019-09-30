@@ -1,5 +1,6 @@
 function run() {
     runTheta();
+    runPi();
 }
 
 // Theta Step
@@ -38,6 +39,20 @@ function generateD() {
         let cxMinus1 = Number(document.getElementById(createID("C", xMinus1, "")).value);
         let cxPlus1 = Number(document.getElementById(createID("C", xPlus1, "")).value);
         dxField.value = cxMinus1 ^ cxPlus1;
+    }
+}
+
+// Pi Step
+function runPi() {
+    copyMatrix("ThetaOut", "PiIn");
+    for (let x = 0; x < 5; x++) {
+        for (let y = 0; y < 5; y++) {
+            let xPrime = y;
+            let yPrime = (2 * x + 3 * y) % 5;
+            let inID = createID("PiIn", x, y);
+            let outID = createID("PiOut", xPrime, yPrime);
+            document.getElementById(outID).value = document.getElementById(inID).value;
+        }
     }
 }
 
