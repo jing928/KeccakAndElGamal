@@ -1,16 +1,15 @@
 function runRound() {
-    let roundNumber = Number(document.getElementById("roundNumber").textContent);
-    runTheta(roundNumber);
+    updateRound();
+    runTheta();
     runPi();
     runChi();
     runIota();
-    updateRound();
     showFinalOutput();
     updateButtonStatus();
 }
 
 function reset() {
-    document.getElementById("roundNumber").textContent = "0";
+    document.getElementById("roundNumber").textContent = "-";
     let inputs = document.getElementsByTagName("input");
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].value = "";
@@ -34,6 +33,9 @@ function copyMatrix(from, to) {
 
 function updateRound() {
     let currentRound = Number(document.getElementById("roundNumber").textContent);
+    if (isNaN(currentRound)) {
+        currentRound = -1;
+    }
     let newRound = Math.min(11, currentRound + 1);
     document.getElementById("roundNumber").textContent = newRound.toString();
 }
@@ -60,8 +62,9 @@ function reverseButtonStatus() {
 }
 
 // Theta Step
-function runTheta(rc) {
-    if (rc === 0) {
+function runTheta() {
+    let roundNumber = Number(document.getElementById("roundNumber").textContent);
+    if (roundNumber === 0) {
         copyMatrix("Original", "ThetaIn");
     } else {
         copyMatrix("IotaOut", "ThetaIn");
