@@ -1,13 +1,14 @@
-function run() {
+function runRound() {
     let roundNumber = Number(document.getElementById("roundNumber").textContent);
-    while (roundNumber < 12) {
-        runTheta(roundNumber);
-        runPi();
-        runChi();
-        runIota();
-        updateRound();
-        roundNumber++;
+    if (roundNumber === 11) {
+        alert("Maximum round reached...Please reset the program.");
+        return;
     }
+    runTheta(roundNumber);
+    runPi();
+    runChi();
+    runIota();
+    updateRound();
 }
 
 function createID(base, x, y) {
