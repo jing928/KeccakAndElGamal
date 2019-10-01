@@ -5,6 +5,20 @@ function run() {
     runIota();
 }
 
+function createID(base, x, y) {
+    return base + x + y;
+}
+
+function copyMatrix(from, to) {
+    for (let x = 0; x < 5; x++) {
+        for (let y = 0; y < 5; y++) {
+            let fromField = document.getElementById(createID(from, x, y));
+            let toField = document.getElementById(createID(to, x, y));
+            toField.value = fromField.value;
+        }
+    }
+}
+
 // Theta Step
 function runTheta() {
     copyMatrix("Original", "ThetaIn");
@@ -123,18 +137,4 @@ function processRoundConstant(round) {
     let firstHexDigit = roundConstant[2];
     let bin = parseInt(firstHexDigit, 16).toString(2);
     return parseInt(bin[0]);
-}
-
-function createID(base, x, y) {
-    return base + x + y;
-}
-
-function copyMatrix(from, to) {
-    for (let x = 0; x < 5; x++) {
-        for (let y = 0; y < 5; y++) {
-            let fromField = document.getElementById(createID(from, x, y));
-            let toField = document.getElementById(createID(to, x, y));
-            toField.value = fromField.value;
-        }
-    }
 }
