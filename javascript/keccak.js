@@ -1,8 +1,13 @@
 function run() {
-    runTheta();
-    runPi();
-    runChi();
-    runIota();
+    let roundNumber = Number(document.getElementById("roundNumber").textContent);
+    while (roundNumber < 12) {
+        runTheta(roundNumber);
+        runPi();
+        runChi();
+        runIota();
+        updateRound();
+        roundNumber++;
+    }
 }
 
 function createID(base, x, y) {
@@ -19,9 +24,19 @@ function copyMatrix(from, to) {
     }
 }
 
+function updateRound() {
+    let currentRound = Number(document.getElementById("roundNumber").textContent);
+    let newRound = Math.min(11, currentRound + 1);
+    document.getElementById("roundNumber").textContent = newRound.toString();
+}
+
 // Theta Step
-function runTheta() {
-    copyMatrix("Original", "ThetaIn");
+function runTheta(rc) {
+    if (rc === 0) {
+        copyMatrix("Original", "ThetaIn");
+    } else {
+        copyMatrix("IotaOut", "ThetaIn");
+    }
     generateC();
     generateD();
     for (let x = 0; x < 5; x++) {
