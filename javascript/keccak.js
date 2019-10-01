@@ -11,6 +11,14 @@ function runRound() {
     updateRound();
 }
 
+function reset() {
+    document.getElementById("roundNumber").textContent = "0";
+    let inputs = document.getElementsByTagName("input");
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = "";
+    }
+}
+
 function createID(base, x, y) {
     return base + x + y;
 }
