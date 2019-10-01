@@ -2,6 +2,7 @@ function run() {
     runTheta();
     runPi();
     runChi();
+    runIota();
 }
 
 // Theta Step
@@ -88,6 +89,40 @@ function calculateFinalOutput(x, y, notBPlusOne, BPlusTwo) {
     let chiInput = Number(document.getElementById(createID("ChiIn", x, y)).value);
     let chiOutput = chiInput ^ (notBPlusOne & BPlusTwo);
     document.getElementById(createID("ChiOut", x, y)).value = chiOutput;
+}
+
+// Iota Step
+
+function runIota() {
+    copyMatrix("ChiOut", "IotaIn");
+    let roundNum = Number(document.getElementById("roundNumber").textContent);
+    document.getElementById("roundConstant").value = ROUND_CONSTANTS[roundNum];
+    copyMatrix("IotaIn", "IotaOut");
+    let roundConstant = processRoundConstant(roundNum);
+    let l00 = Number(document.getElementById(createID("IotaIn", "0", "0")).value);
+    document.getElementById(createID("IotaOut", "0", "0")).value = l00 ^ roundConstant;
+}
+
+const ROUND_CONSTANTS = [
+    "0x0000000000000001",
+    "0x0000000000008082",
+    "0x800000000000808A",
+    "0x8000000080008000",
+    "0x000000000000808B",
+    "0x0000000080000001",
+    "0x8000000080008081",
+    "0x8000000000008009",
+    "0x000000000000008A",
+    "0x0000000000000088",
+    "0x0000000080008009",
+    "0x000000008000000A"
+];
+
+function processRoundConstant(round) {
+    let roundConstant = ROUND_CONSTANTS[round];
+    let firstHexDigit = roundConstant[2];
+    let bin = parseInt(firstHexDigit, 16).toString(2);
+    return parseInt(bin[0]);
 }
 
 function createID(base, x, y) {
