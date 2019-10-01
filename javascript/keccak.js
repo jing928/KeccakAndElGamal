@@ -9,6 +9,7 @@ function runRound() {
     runChi();
     runIota();
     updateRound();
+    showFinalOutput();
 }
 
 function reset() {
@@ -37,6 +38,13 @@ function updateRound() {
     let currentRound = Number(document.getElementById("roundNumber").textContent);
     let newRound = Math.min(11, currentRound + 1);
     document.getElementById("roundNumber").textContent = newRound.toString();
+}
+
+function showFinalOutput() {
+    let roundNumber = Number(document.getElementById("roundNumber").textContent);
+    if (roundNumber === 11) {
+        copyMatrix("IotaOut", "FinalOut");
+    }
 }
 
 // Theta Step
