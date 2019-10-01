@@ -1,15 +1,12 @@
 function runRound() {
     let roundNumber = Number(document.getElementById("roundNumber").textContent);
-    if (roundNumber === 11) {
-        alert("Maximum round reached...Please reset the program.");
-        return;
-    }
     runTheta(roundNumber);
     runPi();
     runChi();
     runIota();
     updateRound();
     showFinalOutput();
+    updateButtonStatus();
 }
 
 function reset() {
@@ -18,6 +15,7 @@ function reset() {
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].value = "";
     }
+    reverseButtonStatus();
 }
 
 function createID(base, x, y) {
@@ -45,6 +43,20 @@ function showFinalOutput() {
     if (roundNumber === 11) {
         copyMatrix("IotaOut", "FinalOut");
     }
+}
+
+function updateButtonStatus() {
+    let roundNumber = Number(document.getElementById("roundNumber").textContent);
+    if (roundNumber === 11) {
+        reverseButtonStatus();
+    }
+}
+
+function reverseButtonStatus() {
+    let runRoundButton = document.getElementById("runRoundButton");
+    let resetButton = document.getElementById("resetButton");
+    runRoundButton.disabled = !runRoundButton.disabled;
+    resetButton.disabled = !resetButton.disabled;
 }
 
 // Theta Step
