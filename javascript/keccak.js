@@ -1,6 +1,7 @@
 function run() {
     runTheta();
     runPi();
+    runChi();
 }
 
 // Theta Step
@@ -54,6 +55,39 @@ function runPi() {
             document.getElementById(outID).value = document.getElementById(inID).value;
         }
     }
+}
+
+// Chi Step
+function runChi() {
+    copyMatrix("PiOut", "ChiIn");
+    for (let x = 0; x < 5; x++) {
+        for (let y = 0; y < 5; y++) {
+            let notBPlusOne = calculateNotBPlusOne(x, y);
+            let bPlusTwo = calculateBPlusTwo(x, y);
+            calculateFinalOutput(x, y, notBPlusOne, bPlusTwo);
+        }
+    }
+}
+
+function calculateNotBPlusOne(x, y) {
+    let bPlusOneX = (x + 1) % 5;
+    let bPlusOne = Number(document.getElementById(createID("ChiIn", bPlusOneX, y)).value);
+    let notBPlusOne = bPlusOne ^ 1;
+    document.getElementById(createID("NotBPlusOne", x, y)).value = notBPlusOne;
+    return notBPlusOne;
+}
+
+function calculateBPlusTwo(x, y) {
+    let bPlusTwoX = (x + 2) % 5;
+    let bPlusTwo = Number(document.getElementById(createID("ChiIn", bPlusTwoX, y)).value);
+    document.getElementById(createID("BPlusTwo", x, y)).value = bPlusTwo;
+    return bPlusTwo;
+}
+
+function calculateFinalOutput(x, y, notBPlusOne, BPlusTwo) {
+    let chiInput = Number(document.getElementById(createID("ChiIn", x, y)).value);
+    let chiOutput = chiInput ^ (notBPlusOne & BPlusTwo);
+    document.getElementById(createID("ChiOut", x, y)).value = chiOutput;
 }
 
 function createID(base, x, y) {
