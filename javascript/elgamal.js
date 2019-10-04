@@ -37,3 +37,25 @@ function fastExponentiation(base, exp, mod) {
     }
     return result;
 }
+
+function findInverse(num, mod) {
+    if (mod === 1) {
+        return 0; // No inverse
+    }
+    let originalMod = mod;
+    let x = 1;
+    let y = 0;
+    while (num > 1) {
+        let quotient = Math.trunc(num / mod);
+        let temp = mod;
+        mod = num % mod;
+        num = temp;
+        temp = y;
+        y = x - quotient * y;
+        x = temp;
+    }
+    if (x < 0) {
+        x += originalMod;
+    }
+    return x;
+}
