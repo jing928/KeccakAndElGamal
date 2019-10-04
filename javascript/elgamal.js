@@ -23,6 +23,17 @@ function encrypt() {
     document.getElementById("cipher").value = cipher;
 }
 
+function decrypt() {
+    let c1 = getNumber("C1");
+    let c2 = getNumber("C2");
+    let x = getNumber("X");
+    let p = getNumber("P");
+    let K = fastExponentiation(c1, x, p);
+    let inverseOfK = findInverse(K, p);
+    let decrypted = (c2 * inverseOfK) % p;
+    document.getElementById("decrypted").value = decrypted;
+}
+
 function getNumber(id) {
     return Number(document.getElementById(id).value)
 }
