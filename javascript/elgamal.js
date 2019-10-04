@@ -51,6 +51,40 @@ function encryptAll() {
     }
 }
 
+function multiplyAndCompare() {
+    mulplyEncryptedNumbers();
+    multiplyPlainNumbers();
+    decryptProdOfEncNums();
+}
+
+function mulplyEncryptedNumbers() {
+    let encryptedNumbers = getFiveEncryptedNumbers();
+    let p = getNumber("P");
+    let c1Product = 1;
+    let c2Product = 1;
+    for (let i = 0; i < 5; i++) {
+        c1Product = (c1Product * encryptedNumbers[i].c1) % p;
+        c2Product = (c2Product * encryptedNumbers[i].c2) % p;
+    }
+    document.getElementById("productC").value = `(${c1Product}, ${c2Product})`;
+}
+
+function multiplyPlainNumbers() {
+    let numbers = getFiveNumbers();
+    let product = 1;
+    let p = getNumber("P");
+    for (let number of numbers) {
+        product = (product * number) % p;
+    }
+    document.getElementById("productP").value = product;
+}
+
+function decryptProdOfEncNums() {
+    let encryptedProdStr = document.getElementById("productC").value;
+    let cipher = processCipherString(encryptedProdStr);
+    document.getElementById("decryptedPC").value = decrypt(cipher.c1, cipher.c2);
+}
+
 function getFiveNumbers() {
     let numbers = [];
     for (let i = 0; i < 5; i++) {
@@ -59,6 +93,21 @@ function getFiveNumbers() {
         numbers.push(num);
     }
     return numbers;
+}
+
+function getFiveEncryptedNumbers() {
+    let ciphers = [];
+    for (let i = 0; i < 5; i++) {
+        let id = "EncN" + i;
+        let cipherString = document.getElementById(id).value;
+        ciphers.push(processCipherString(cipherString));
+    }
+    return ciphers;
+}
+
+function processCipherString(cipherString) {
+    let stringArr = cipherString.replace(/[()]/g, "").split(", ");
+    return {c1: Number(stringArr[0]), c2: Number(stringArr[1])};
 }
 
 function getNumber(id) {
