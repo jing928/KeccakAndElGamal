@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ElGamal Demo</title>
+</head>
+<body>
+<h1>ElGamal Cryptographic System</h1>
+<div>
+    <p><strong>Key Generation</strong></p>
+    <table>
+        <tr>
+            <td>P:</td>
+            <td><input id="P" type="number" min="1"></td>
+            <td>(a prime number greater than 200)</td>
+        </tr>
+        <tr>
+            <td>G:</td>
+            <td><input id="G" type="number" min="1"></td>
+            <td>(a primitive root of P)</td>
+        </tr>
+        <tr>
+            <td>Private Key X :</td>
+            <td><input id="x" type="number"></td>
+            <td>(a random number less than P - 1)</td>
+        </tr>
+        <tr>
+            <td>
+                <button>Generate</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Y:</td>
+            <td><input id="Y" type="number" readonly></td>
+            <td>(Y = G^X mod P)</td>
+        </tr>
+        <tr>
+            <td>Public Key:</td>
+            <td><input id="pubkey" type="text" readonly></td>
+            <td>({P, G, Y})</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <p><strong>Encryption and Decryption</strong></p>
+    <table>
+        <tr>
+            <td>Message:</td>
+            <td><input id="M" type="number"></td>
+            <td>(an integer less than P)</td>
+        </tr>
+        <tr>
+            <td>k:</td>
+            <td><input id="k" type="number"></td>
+            <td>(a random integer less than P)</td>
+        </tr>
+        <tr>
+            <td>
+                <button>Encrypt</button>
+            </td>
+        </tr>
+        <tr>
+            <td>C1:</td>
+            <td><input id="C1" type="number" readonly></td>
+            <td>(C1 = G^k mod P)</td>
+        </tr>
+        <tr>
+            <td>C2:</td>
+            <td><input id="C2" type="number" readonly></td>
+            <td>(C1 = Y^k * M mod P)</td>
+        </tr>
+        <tr>
+            <td>Cipher:</td>
+            <td><input id="cipher" type="text" readonly></td>
+            <td>(C1, C2)</td>
+        </tr>
+        <tr>
+            <td>
+                <button>Decrypt</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Decrypted Message:</td>
+            <td><input id="decrypted" type="number" readonly></td>
+            <td>(M = (C2 / C1^X) mod P)</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <p><strong>Multiplication Over Encrypted Data</strong></p>
+    <table>
+        <tr>
+            <td>N1:</td>
+            <td><input id="N1" type="number"></td>
+            <td>(an integer less than P)</td>
+        </tr>
+        <tr>
+            <td>N2:</td>
+            <td><input id="N2" type="number"></td>
+            <td>(an integer less than P)</td>
+        </tr>
+        <tr>
+            <td>N3:</td>
+            <td><input id="N3" type="number"></td>
+            <td>(an integer less than P)</td>
+        </tr>
+        <tr>
+            <td>N4:</td>
+            <td><input id="N4" type="number"></td>
+            <td>(an integer less than P)</td>
+        </tr>
+        <tr>
+            <td>N5:</td>
+            <td><input id="N5" type="number"></td>
+            <td>(an integer less than P)</td>
+        </tr>
+        <tr>
+            <td>
+                <button>Encrypt All</button>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>Encrypted N1</td>
+            <td>Encrypted N2</td>
+            <td>Encrypted N3</td>
+            <td>Encrypted N4</td>
+            <td>Encrypted N5</td>
+        </tr>
+        <tr>
+            <td><input id="EncN1" type="number" readonly></td>
+            <td><input id="EncN2" type="number" readonly></td>
+            <td><input id="EncN3" type="number" readonly></td>
+            <td><input id="EncN4" type="number" readonly></td>
+            <td><input id="EncN5" type="number" readonly></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <button>Multiply and Compare</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Product of the Encrypted Numbers:</td>
+            <td><input id="productC" type="text" readonly></td>
+        </tr>
+        <tr>
+            <td>Product of the Plain Numbers:</td>
+            <td><input id="productP" type="number" readonly></td>
+        </tr>
+        <tr>
+            <td>Decrypted Product of the Encrypted Number</td>
+            <td><input id="decryptedPC" type="number" readonly></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
