@@ -7,28 +7,39 @@ function generateKey() {
     document.getElementById("pubkey").value = `{${p}, ${g}, ${y}}`;
 }
 
-function encrypt() {
-    let p = getNumber("P");
-    let g = getNumber("G");
-    let y = getNumber("Y");
+function encryptButtonClicked() {
     let m = getNumber("M");
-    let k = getNumber("k");
-    let c1 = fastExponentiation(g, k, p);
-    let K = fastExponentiation(y, k, p);
-    let c2 = (K * m) % p;
+    let cipher = encrypt(m);
+    let c1 = cipher.c1;
+    let c2 = cipher.c2;
     document.getElementById("C1").value = c1;
     document.getElementById("C2").value = c2;
     document.getElementById("cipher").value = `(${c1}, ${c2})`;
 }
 
-function decrypt() {
+function encrypt(message) {
+    let p = getNumber("P");
+    let g = getNumber("G");
+    let y = getNumber("Y");
+    let k = getNumber("k");
+    let c1 = fastExponentiation(g, k, p);
+    let K = fastExponentiation(y, k, p);
+    let c2 = (K * message) % p;
+    return {c1: c1, c2: c2};
+}
+
+function decryptButtonClicked() {
     let c1 = getNumber("C1");
     let c2 = getNumber("C2");
+    document.getElementById("decrypted").value = decrypt(c1, c2);
+}
+
+function decrypt(c1, c2) {
     let x = getNumber("X");
     let p = getNumber("P");
     let K = fastExponentiation(c1, x, p);
     let inverseOfK = findInverse(K, p);
-    document.getElementById("decrypted").value = (c2 * inverseOfK) % p;
+    return (c2 * inverseOfK) % p;
 }
 
 function getNumber(id) {
