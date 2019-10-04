@@ -90,6 +90,11 @@
     <p><strong>Multiplication Over Encrypted Data</strong></p>
     <table>
         <tr>
+            <td>N0:</td>
+            <td><input id="N0" type="number"></td>
+            <td>(an integer less than P)</td>
+        </tr>
+        <tr>
             <td>N1:</td>
             <td><input id="N1" type="number"></td>
             <td>(an integer less than P)</td>
@@ -110,30 +115,25 @@
             <td>(an integer less than P)</td>
         </tr>
         <tr>
-            <td>N5:</td>
-            <td><input id="N5" type="number"></td>
-            <td>(an integer less than P)</td>
-        </tr>
-        <tr>
             <td>
-                <button>Encrypt All</button>
+                <button onclick="encryptAll()">Encrypt All</button>
             </td>
         </tr>
     </table>
     <table>
         <tr>
+            <td>Encrypted N0</td>
             <td>Encrypted N1</td>
             <td>Encrypted N2</td>
             <td>Encrypted N3</td>
             <td>Encrypted N4</td>
-            <td>Encrypted N5</td>
         </tr>
         <tr>
-            <td><input id="EncN1" type="number" readonly></td>
-            <td><input id="EncN2" type="number" readonly></td>
-            <td><input id="EncN3" type="number" readonly></td>
-            <td><input id="EncN4" type="number" readonly></td>
-            <td><input id="EncN5" type="number" readonly></td>
+            <td><input id="EncN0" type="text" readonly></td>
+            <td><input id="EncN1" type="text" readonly></td>
+            <td><input id="EncN2" type="text" readonly></td>
+            <td><input id="EncN3" type="text" readonly></td>
+            <td><input id="EncN4" type="text" readonly></td>
         </tr>
     </table>
     <table>

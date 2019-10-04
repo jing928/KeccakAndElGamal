@@ -42,6 +42,25 @@ function decrypt(c1, c2) {
     return (c2 * inverseOfK) % p;
 }
 
+function encryptAll() {
+    let numbers = getFiveNumbers();
+    for (let i = 0; i < 5; i++) {
+        let cipher = encrypt(numbers[i]);
+        let id = "EncN" + i;
+        document.getElementById(id).value = `(${cipher.c1}, ${cipher.c2})`;
+    }
+}
+
+function getFiveNumbers() {
+    let numbers = [];
+    for (let i = 0; i < 5; i++) {
+        let id = "N" + i;
+        let num = Number(document.getElementById(id).value);
+        numbers.push(num);
+    }
+    return numbers;
+}
+
 function getNumber(id) {
     return Number(document.getElementById(id).value)
 }
