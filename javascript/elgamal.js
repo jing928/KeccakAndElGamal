@@ -4,8 +4,7 @@ function generateKey() {
     let x = getNumber("X");
     let y = fastExponentiation(g, x, p);
     document.getElementById("Y").value = y;
-    let pubKey = `{${p}, ${g}, ${y}}`;
-    document.getElementById("pubkey").value = pubKey;
+    document.getElementById("pubkey").value = `{${p}, ${g}, ${y}}`;
 }
 
 function encrypt() {
@@ -19,8 +18,7 @@ function encrypt() {
     let c2 = (K * m) % p;
     document.getElementById("C1").value = c1;
     document.getElementById("C2").value = c2;
-    let cipher = `(${c1}, ${c2})`;
-    document.getElementById("cipher").value = cipher;
+    document.getElementById("cipher").value = `(${c1}, ${c2})`;
 }
 
 function decrypt() {
@@ -30,8 +28,7 @@ function decrypt() {
     let p = getNumber("P");
     let K = fastExponentiation(c1, x, p);
     let inverseOfK = findInverse(K, p);
-    let decrypted = (c2 * inverseOfK) % p;
-    document.getElementById("decrypted").value = decrypted;
+    document.getElementById("decrypted").value = (c2 * inverseOfK) % p;
 }
 
 function getNumber(id) {
