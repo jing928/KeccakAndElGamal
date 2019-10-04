@@ -1,11 +1,15 @@
 function generateKey() {
-    let p = Number(document.getElementById("P").value);
-    let g = Number(document.getElementById("G").value);
-    let x = Number(document.getElementById("X").value);
+    let p = getNumber("P");
+    let g = getNumber("G");
+    let x = getNumber("X");
     let y = fastExponentiation(g, x, p);
     document.getElementById("Y").value = y;
     let pubKey = `{${p}, ${g}, ${y}}`;
     document.getElementById("pubkey").value = pubKey;
+}
+
+function getNumber(id) {
+    return Number(document.getElementById(id).value)
 }
 
 function fastExponentiation(base, exp, mod) {
