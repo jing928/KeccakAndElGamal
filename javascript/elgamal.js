@@ -1,3 +1,15 @@
+function isPrime(number) {
+    if (isNaN(number) || !isFinite(number) || number % 1 || number < 2) return false;
+    if (number % 2 === 0) return (number === 2);
+    if (number % 3 === 0) return (number === 3);
+    let m = Math.sqrt(number);
+    for (let i = 5; i <= m; i += 6) {
+        if (number % i === 0) return false;
+        if (number % (i + 2) === 0) return false;
+    }
+    return true;
+}
+
 function generateKey() {
     let p = getNumber("P");
     let g = getNumber("G");
