@@ -52,12 +52,12 @@ function encryptAll() {
 }
 
 function multiplyAndCompare() {
-    mulplyEncryptedNumbers();
+    multiplyEncryptedNumbers();
     multiplyPlainNumbers();
     decryptProdOfEncNums();
 }
 
-function mulplyEncryptedNumbers() {
+function multiplyEncryptedNumbers() {
     let encryptedNumbers = getFiveEncryptedNumbers();
     let p = getNumber("P");
     let c1Product = 1;
