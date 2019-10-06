@@ -98,30 +98,35 @@
             <td>N0:</td>
             <td><input id="N0" type="number"></td>
             <td>(an integer less than P)</td>
+            <td id="n0Error" style="color: crimson"></td>
         </tr>
         <tr>
             <td>N1:</td>
             <td><input id="N1" type="number"></td>
             <td>(an integer less than P)</td>
+            <td id="n1Error" style="color: crimson"></td>
         </tr>
         <tr>
             <td>N2:</td>
             <td><input id="N2" type="number"></td>
             <td>(an integer less than P)</td>
+            <td id="n2Error" style="color: crimson"></td>
         </tr>
         <tr>
             <td>N3:</td>
             <td><input id="N3" type="number"></td>
             <td>(an integer less than P)</td>
+            <td id="n3Error" style="color: crimson"></td>
         </tr>
         <tr>
             <td>N4:</td>
             <td><input id="N4" type="number"></td>
             <td>(an integer less than P)</td>
+            <td id="n4Error" style="color: crimson"></td>
         </tr>
         <tr>
             <td>
-                <button onclick="encryptAll()">Encrypt All</button>
+                <button id="encryptAllButton" onclick="encryptAll()" disabled>Encrypt All</button>
             </td>
         </tr>
     </table>
@@ -144,7 +149,8 @@
     <table>
         <tr>
             <td>
-                <button onclick="multiplyAndCompare()">Multiply and Compare</button>
+                <button id="multiplyAndCompareButton" onclick="multiplyAndCompare()" disabled>Multiply and Compare
+                </button>
             </td>
         </tr>
         <tr>

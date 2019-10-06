@@ -123,6 +123,24 @@ function validateK() {
     return isValid;
 }
 
+// Multiplication Validations
+function validateNumbers() {
+    let p = getNumber("P");
+    let validFlags = [];
+    for (let i = 0; i < 5; i++) {
+        let id = "N" + i;
+        let number = getNumber(id);
+        let isValid = !isNaN(number) && number < p;
+        let errorField = document.getElementById("n" + i + "Error");
+        updateErrorMessage(isValid, errorField, "Invalid Number");
+        validFlags.push(isValid);
+    }
+    let allValid = validFlags.every(flag => {
+        return flag;
+    });
+    return allValid && validateK();
+}
+
 // Main Functions
 
 function generateKey() {
@@ -136,6 +154,7 @@ function generateKey() {
     document.getElementById("Y").value = y;
     document.getElementById("pubkey").value = `{${p}, ${g}, ${y}}`;
     document.getElementById("encryptButton").disabled = false;
+    document.getElementById("encryptAllButton").disabled = false;
 }
 
 function encryptButtonClicked() {
@@ -178,12 +197,16 @@ function decrypt(c1, c2) {
 }
 
 function encryptAll() {
+    if (!validateNumbers()) {
+        return;
+    }
     let numbers = getFiveNumbers();
     for (let i = 0; i < 5; i++) {
         let cipher = encrypt(numbers[i]);
         let id = "EncN" + i;
         document.getElementById(id).value = `(${cipher.c1}, ${cipher.c2})`;
     }
+    document.getElementById("multiplyAndCompareButton").disabled = false;
 }
 
 function multiplyAndCompare() {
