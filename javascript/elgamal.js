@@ -12,11 +12,7 @@ function validateP() {
     let isGreaterThan200 = p > 200;
     let isValid = isPrime(p) && isGreaterThan200;
     let errorField = document.getElementById("pError");
-    if (!isValid) {
-        errorField.innerText = "Invalid P";
-    } else {
-        errorField.innerText = "";
-    }
+    updateErrorMessage(isValid, errorField, "Invalid P");
     return isValid;
 }
 
@@ -33,12 +29,16 @@ function validateX(isPValid) {
     let x = getNumber("X");
     let p = getNumber("P");
     let isValid = x < p - 1;
+    updateErrorMessage(isValid, errorField, "Invalid X");
+    return isValid;
+}
+
+function updateErrorMessage(isValid, errorField, errorMessage) {
     if (!isValid) {
-        errorField.innerText = "Invalid X";
+        errorField.innerText = errorMessage;
     } else {
         errorField.innerText = "";
     }
-    return isValid;
 }
 
 function isPrime(number) {
