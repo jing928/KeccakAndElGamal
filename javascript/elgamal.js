@@ -1,3 +1,46 @@
+// Validations
+
+function validateKeys() {
+    let isPValid = validateP();
+    let isGValid = validateG(isPValid);
+    let isXValid = validateX(isPValid);
+    return isPValid && isGValid && isXValid;
+}
+
+function validateP() {
+    let p = getNumber("P");
+    let isGreaterThan200 = p > 200;
+    let isValid = isPrime(p) && isGreaterThan200;
+    let errorField = document.getElementById("pError");
+    if (!isValid) {
+        errorField.innerText = "Invalid P";
+    } else {
+        errorField.innerText = "";
+    }
+    return isValid;
+}
+
+function validateG(isPValid) {
+
+}
+
+function validateX(isPValid) {
+    let errorField = document.getElementById("xError");
+    if (!isPValid) {
+        errorField.innerText = "Please enter a valid P first";
+        return false;
+    }
+    let x = getNumber("X");
+    let p = getNumber("P");
+    let isValid = x < p - 1;
+    if (!isValid) {
+        errorField.innerText = "Invalid X";
+    } else {
+        errorField.innerText = "";
+    }
+    return isValid;
+}
+
 function isPrime(number) {
     if (isNaN(number) || !isFinite(number) || number % 1 || number < 2) return false;
     if (number % 2 === 0) return (number === 2);
@@ -10,7 +53,12 @@ function isPrime(number) {
     return true;
 }
 
+// Main Functions
+
 function generateKey() {
+    if (!validateKeys()) {
+        return;
+    }
     let p = getNumber("P");
     let g = getNumber("G");
     let x = getNumber("X");
