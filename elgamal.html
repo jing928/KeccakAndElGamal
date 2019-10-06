@@ -51,15 +51,17 @@
             <td>Message:</td>
             <td><input id="M" type="number"></td>
             <td>(an integer less than P)</td>
+            <td id="mError" style="color: crimson"></td>
         </tr>
         <tr>
             <td>k:</td>
             <td><input id="k" type="number"></td>
             <td>(a random integer less than P)</td>
+            <td id="kError" style="color: crimson"></td>
         </tr>
         <tr>
             <td>
-                <button onclick="encryptButtonClicked()">Encrypt</button>
+                <button id="encryptButton" onclick="encryptButtonClicked()" disabled>Encrypt</button>
             </td>
         </tr>
         <tr>
@@ -79,7 +81,7 @@
         </tr>
         <tr>
             <td>
-                <button onclick="decryptButtonClicked()">Decrypt</button>
+                <button id="decryptButton" onclick="decryptButtonClicked()" disabled>Decrypt</button>
             </td>
         </tr>
         <tr>

@@ -98,6 +98,31 @@ function findPrimeFactors(number) {
     return Array.from(factors);
 }
 
+// Encryption Validations
+function validateEncParams() {
+    let isMValid = validateM();
+    let isKValid = validateK();
+    return isMValid && isKValid;
+}
+
+function validateM() {
+    let m = getNumber("M");
+    let p = getNumber("P");
+    let isValid = !isNaN(m) && m < p;
+    let errorField = document.getElementById("mError");
+    updateErrorMessage(isValid, errorField, "Invalid M");
+    return isValid;
+}
+
+function validateK() {
+    let k = getNumber("k");
+    let p = getNumber("P");
+    let isValid = !isNaN(k) && k < p;
+    let errorField = document.getElementById("kError");
+    updateErrorMessage(isValid, errorField, "Invalid k");
+    return isValid;
+}
+
 // Main Functions
 
 function generateKey() {
@@ -110,9 +135,13 @@ function generateKey() {
     let y = fastExponentiation(g, x, p);
     document.getElementById("Y").value = y;
     document.getElementById("pubkey").value = `{${p}, ${g}, ${y}}`;
+    document.getElementById("encryptButton").disabled = false;
 }
 
 function encryptButtonClicked() {
+    if (!validateEncParams()) {
+        return;
+    }
     let m = getNumber("M");
     let cipher = encrypt(m);
     let c1 = cipher.c1;
@@ -120,6 +149,7 @@ function encryptButtonClicked() {
     document.getElementById("C1").value = c1;
     document.getElementById("C2").value = c2;
     document.getElementById("cipher").value = `(${c1}, ${c2})`;
+    document.getElementById("decryptButton").disabled = false;
 }
 
 function encrypt(message) {
