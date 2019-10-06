@@ -1,5 +1,6 @@
 // Validations
 
+// Key Generation Validations
 function validateKeys() {
     let isPValid = validateP();
     let isGValid = validateG(isPValid);
@@ -17,7 +18,16 @@ function validateP() {
 }
 
 function validateG(isPValid) {
-
+    let errorField = document.getElementById("gError");
+    if (!isPValid) {
+        errorField.innerText = "Please enter a valid P first";
+        return false;
+    }
+    let g = getNumber("G");
+    let p = getNumber("P");
+    let isValid = !isNaN(g) && isPrimitiveRoot(g, p);
+    updateErrorMessage(isValid, errorField, "Invalid G");
+    return isValid;
 }
 
 function validateX(isPValid) {
