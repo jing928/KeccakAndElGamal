@@ -53,6 +53,41 @@ function isPrime(number) {
     return true;
 }
 
+function isPrimitiveRoot(number, prime) {
+    // Get Euler Totient function of prime
+    let phi = prime - 1;
+    let factors = findPrimeFactors(phi);
+    for (let i = 2; i <= phi; i++) {
+        let signal = false;
+        factors.some(factor => {
+            signal = fastExponentiation(i, phi / factor, prime) === 1;
+            return signal;
+        });
+        if (!signal && number === i) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function findPrimeFactors(number) {
+    let factors = new Set();
+    while (number % 2 === 0) {
+        factors.add(2);
+        number /= 2;
+    }
+    for (let i = 3; i <= Math.sqrt(number); i++) {
+        while (number % i === 0) {
+            factors.add(i);
+            number /= i;
+        }
+    }
+    if (number > 2) {
+        factors.add(number);
+    }
+    return Array.from(factors);
+}
+
 // Main Functions
 
 function generateKey() {
