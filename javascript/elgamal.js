@@ -123,7 +123,11 @@ function processCipherString(cipherString) {
 }
 
 function getNumber(id) {
-    return Number(document.getElementById(id).value)
+    let value = document.getElementById(id).value;
+    if (value === "") {
+        return NaN;
+    }
+    return Number(value);
 }
 
 function fastExponentiation(base, exp, mod) {
