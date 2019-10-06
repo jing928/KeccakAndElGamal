@@ -1,5 +1,13 @@
 // Validations
 
+function updateErrorMessage(isValid, errorField, errorMessage) {
+    if (!isValid) {
+        errorField.innerText = errorMessage;
+    } else {
+        errorField.innerText = "";
+    }
+}
+
 // Key Generation Validations
 function validateKeys() {
     let isPValid = validateP();
@@ -41,14 +49,6 @@ function validateX(isPValid) {
     let isValid = x < p - 1;
     updateErrorMessage(isValid, errorField, "Invalid X");
     return isValid;
-}
-
-function updateErrorMessage(isValid, errorField, errorMessage) {
-    if (!isValid) {
-        errorField.innerText = errorMessage;
-    } else {
-        errorField.innerText = "";
-    }
 }
 
 function isPrime(number) {
