@@ -35,7 +35,7 @@
         <tr>
             <td>Y:</td>
             <td><input id="Y" type="number" readonly></td>
-            <td>(Y = G^X mod P)</td>
+            <td>(Y = G<sup>X</sup> mod P)</td>
         </tr>
         <tr>
             <td>Public Key:</td>
@@ -65,19 +65,19 @@
             </td>
         </tr>
         <tr>
-            <td>C1:</td>
+            <td>C<sub>1</sub>:</td>
             <td><input id="C1" type="number" readonly></td>
-            <td>(C1 = G^k mod P)</td>
+            <td>(C<sub>1</sub> = G<sup>k</sup> mod P)</td>
         </tr>
         <tr>
-            <td>C2:</td>
+            <td>C<sub>2</sub>:</td>
             <td><input id="C2" type="number" readonly></td>
-            <td>(C1 = Y^k * M mod P)</td>
+            <td>(C<sub>2</sub> = Y<sup>k</sup> * M mod P)</td>
         </tr>
         <tr>
             <td>Cipher:</td>
             <td><input id="cipher" type="text" readonly></td>
-            <td>(C1, C2)</td>
+            <td>(C<sub>1</sub>, C<sub>2</sub>)</td>
         </tr>
         <tr>
             <td>
@@ -87,7 +87,7 @@
         <tr>
             <td>Decrypted Message:</td>
             <td><input id="decrypted" type="number" readonly></td>
-            <td>(M = (C2 / C1^X) mod P)</td>
+            <td>(M = (C<sub>2</sub> / C<sub>1</sub><sup>X</sup>) mod P)</td>
         </tr>
     </table>
 </div>
@@ -95,31 +95,31 @@
     <p><strong>Multiplication Over Encrypted Data</strong></p>
     <table>
         <tr>
-            <td>N0:</td>
+            <td>N<sub>0</sub>:</td>
             <td><input id="N0" type="number"></td>
             <td>(an integer less than P)</td>
             <td id="n0Error" style="color: crimson"></td>
         </tr>
         <tr>
-            <td>N1:</td>
+            <td>N<sub>1</sub>:</td>
             <td><input id="N1" type="number"></td>
             <td>(an integer less than P)</td>
             <td id="n1Error" style="color: crimson"></td>
         </tr>
         <tr>
-            <td>N2:</td>
+            <td>N<sub>2</sub>:</td>
             <td><input id="N2" type="number"></td>
             <td>(an integer less than P)</td>
             <td id="n2Error" style="color: crimson"></td>
         </tr>
         <tr>
-            <td>N3:</td>
+            <td>N<sub>3</sub>:</td>
             <td><input id="N3" type="number"></td>
             <td>(an integer less than P)</td>
             <td id="n3Error" style="color: crimson"></td>
         </tr>
         <tr>
-            <td>N4:</td>
+            <td>N<sub>4</sub>:</td>
             <td><input id="N4" type="number"></td>
             <td>(an integer less than P)</td>
             <td id="n4Error" style="color: crimson"></td>
@@ -132,11 +132,11 @@
     </table>
     <table>
         <tr>
-            <td>Encrypted N0</td>
-            <td>Encrypted N1</td>
-            <td>Encrypted N2</td>
-            <td>Encrypted N3</td>
-            <td>Encrypted N4</td>
+            <td>Encrypted N<sub>0</sub></td>
+            <td>Encrypted N<sub>1</sub></td>
+            <td>Encrypted N<sub>2</sub></td>
+            <td>Encrypted N<sub>3</sub></td>
+            <td>Encrypted N<sub>4</sub></td>
         </tr>
         <tr>
             <td><input id="EncN0" type="text" readonly></td>
