@@ -162,7 +162,8 @@ function encryptButtonClicked() {
         return;
     }
     let m = getNumber("M");
-    let cipher = encrypt(m);
+    let k = getNumber("k");
+    let cipher = encrypt(m, k);
     let c1 = cipher.c1;
     let c2 = cipher.c2;
     document.getElementById("C1").value = c1;
@@ -171,11 +172,10 @@ function encryptButtonClicked() {
     document.getElementById("decryptButton").disabled = false;
 }
 
-function encrypt(message) {
+function encrypt(message, k) {
     let p = getNumber("P");
     let g = getNumber("G");
     let y = getNumber("Y");
-    let k = getNumber("k");
     let c1 = fastExponentiation(g, k, p);
     let K = fastExponentiation(y, k, p);
     let c2 = (K * message) % p;
@@ -202,7 +202,8 @@ function encryptAll() {
     }
     let numbers = getFiveNumbers();
     for (let i = 0; i < 5; i++) {
-        let cipher = encrypt(numbers[i]);
+        let k = getNumber("k" + i);
+        let cipher = encrypt(numbers[i], k);
         let id = "EncN" + i;
         document.getElementById(id).value = `(${cipher.c1}, ${cipher.c2})`;
     }
