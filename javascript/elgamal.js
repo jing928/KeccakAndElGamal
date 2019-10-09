@@ -114,11 +114,11 @@ function validateM() {
     return isValid;
 }
 
-function validateK() {
-    let k = getNumber("k");
+function validateK(kNum = "") {
+    let k = getNumber("k" + kNum);
     let p = getNumber("P");
     let isValid = !isNaN(k) && k < p;
-    let errorField = document.getElementById("kError");
+    let errorField = document.getElementById("k" + kNum + "Error");
     updateErrorMessage(isValid, errorField, "Invalid k");
     return isValid;
 }
@@ -138,7 +138,18 @@ function validateNumbers() {
     let allValid = validFlags.every(flag => {
         return flag;
     });
-    return allValid && validateK();
+    return allValid && validateKs();
+}
+
+function validateKs() {
+    let p = getNumber("P");
+    let validFlags = [];
+    for (let i = 0; i < 5; i++) {
+        validFlags.push(validateK(i));
+    }
+    return validFlags.every(flag => {
+        return flag;
+    });
 }
 
 // Main Functions
