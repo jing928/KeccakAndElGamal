@@ -43,6 +43,7 @@ function validateG() {
 }
 
 function validateX(isQValid) {
+    generateRandomX();
     let errorField = document.getElementById("xError");
     if (!isQValid) {
         errorField.innerText = "Please enter a valid Q first";
@@ -53,6 +54,14 @@ function validateX(isQValid) {
     let isValid = !isNaN(x) && x < q;
     updateErrorMessage(isValid, errorField, "Invalid X");
     return isValid;
+}
+
+function generateRandomX() {
+    let x = getNumber("X");
+    let q = getNumber("Q");
+    if (isNaN(x) && !isNaN(q)) {
+        document.getElementById("X").value = Math.floor(Math.random() * (q - 1)) + 1;
+    }
 }
 
 function isPrime(number) {
