@@ -93,12 +93,22 @@ function validateM() {
 }
 
 function validateK(kNum = "") {
+    generateRandomK(kNum);
     let k = getNumber("k" + kNum);
-    let p = getNumber("P");
-    let isValid = !isNaN(k) && k < p;
+    let q = getNumber("Q");
+    let isValid = !isNaN(k) && k < q && k >= 1;
     let errorField = document.getElementById("k" + kNum + "Error");
     updateErrorMessage(isValid, errorField, "Invalid k");
     return isValid;
+}
+
+function generateRandomK(kNum) {
+    let id = "k" + kNum;
+    let k = getNumber(id);
+    let q = getNumber("Q");
+    if (isNaN(k) && !isNaN(q)) {
+        document.getElementById(id).value = Math.floor(Math.random() * (q - 1)) + 1;
+    }
 }
 
 // Multiplication Validations
