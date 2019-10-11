@@ -11,9 +11,10 @@ function updateErrorMessage(isValid, errorField, errorMessage) {
 // Key Generation Validations
 function validateKeys() {
     let isPValid = validateP();
-    let isGValid = validateG(isPValid);
-    let isXValid = validateX(isPValid);
-    return isPValid && isGValid && isXValid;
+    let isQValid = validateQ();
+    let isGValid = validateG();
+    let isXValid = validateX(isQValid);
+    return isPValid && isQValid && isGValid && isXValid;
 }
 
 function validateP() {
@@ -25,28 +26,31 @@ function validateP() {
     return isValid;
 }
 
-function validateG(isPValid) {
+function validateQ() {
+    let q = getNumber("Q");
+    let isValid = !isNaN(q) && isPrime(q);
+    let errorField = document.getElementById("qError");
+    updateErrorMessage(isValid, errorField, "Invalid Q");
+    return isValid;
+}
+
+function validateG() {
     let errorField = document.getElementById("gError");
-    if (!isPValid) {
-        errorField.innerText = "Please enter a valid P first";
-        return false;
-    }
     let g = getNumber("G");
-    let p = getNumber("P");
-    let isValid = !isNaN(g) && isPrimitiveRoot(g, p);
+    let isValid = !isNaN(g);
     updateErrorMessage(isValid, errorField, "Invalid G");
     return isValid;
 }
 
-function validateX(isPValid) {
+function validateX(isQValid) {
     let errorField = document.getElementById("xError");
-    if (!isPValid) {
-        errorField.innerText = "Please enter a valid P first";
+    if (!isQValid) {
+        errorField.innerText = "Please enter a valid Q first";
         return false;
     }
     let x = getNumber("X");
-    let p = getNumber("P");
-    let isValid = x < p - 1;
+    let q = getNumber("Q");
+    let isValid = !isNaN(x) && x < q;
     updateErrorMessage(isValid, errorField, "Invalid X");
     return isValid;
 }
@@ -61,41 +65,6 @@ function isPrime(number) {
         if (number % (i + 2) === 0) return false;
     }
     return true;
-}
-
-function isPrimitiveRoot(number, prime) {
-    // Get Euler Totient function of prime
-    let phi = prime - 1;
-    let factors = findPrimeFactors(phi);
-    for (let i = 2; i <= phi; i++) {
-        let signal = false;
-        factors.some(factor => {
-            signal = fastExponentiation(i, phi / factor, prime) === 1;
-            return signal;
-        });
-        if (!signal && number === i) {
-            return true;
-        }
-    }
-    return false;
-}
-
-function findPrimeFactors(number) {
-    let factors = new Set();
-    while (number % 2 === 0) {
-        factors.add(2);
-        number /= 2;
-    }
-    for (let i = 3; i <= Math.sqrt(number); i++) {
-        while (number % i === 0) {
-            factors.add(i);
-            number /= i;
-        }
-    }
-    if (number > 2) {
-        factors.add(number);
-    }
-    return Array.from(factors);
 }
 
 // Encryption Validations

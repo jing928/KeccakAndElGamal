@@ -16,15 +16,21 @@
             <td id="pError" style="color: crimson"></td>
         </tr>
         <tr>
+            <td>Q:</td>
+            <td><input id="Q" type="number" min="1"></td>
+            <td>(the prime order)</td>
+            <td id="qError" style="color: crimson"></td>
+        </tr>
+        <tr>
             <td>G:</td>
             <td><input id="G" type="number" min="1"></td>
-            <td>(a primitive root of P)</td>
+            <td>(a generator of the cyclic group)</td>
             <td id="gError" style="color: crimson"></td>
         </tr>
         <tr>
             <td>Private Key X :</td>
             <td><input id="X" type="number"></td>
-            <td>(a random number less than P - 1)</td>
+            <td>(a random number less than Q)</td>
             <td id="xError" style="color: crimson"></td>
         </tr>
         <tr>
