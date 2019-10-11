@@ -51,7 +51,7 @@ function validateX(isQValid) {
     }
     let x = getNumber("X");
     let q = getNumber("Q");
-    let isValid = !isNaN(x) && x < q;
+    let isValid = !isNaN(x) && x < q && x >= 1;
     updateErrorMessage(isValid, errorField, "Invalid X");
     return isValid;
 }
