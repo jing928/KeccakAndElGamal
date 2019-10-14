@@ -31,7 +31,23 @@ In total, we have five values for the column parity `C[x]`. Then we need to appl
 
 ### Pi Step
 
+In the Pi step, which is a permutation step, the elements within the 5 x 5 matrix are moved so that the new `x` position equals the old `y` position, and the new `y` position is computed as `(2x + 3y) mod 5`. The result is as follows:
+
+![pi](report_images/pi.png)
+
+### Chi Step
+
+Chi step is another substitution step, which updates the current bit value using the bit values of the next two positions on the same row, so that `A[x,y] = B[x,y] XOR ((B[x+1,y] XOR 1) ^ B[x+2,y])` as depicted in the following image:
+
+![chi](report_images/chi.png)
+
 ### Iota Step
+
+The last step of a round is to break up any symmetry introduced by other step functions as it **XOR's** the first element `A[0,0]` of the matrix and the first bit of the **round constant**. There are 12 different round constants for Keccak f-25.
+
+![iota](report_images/iota.png)
+
+Then the output of this step will be the input of the Theta function in the next round until it runs for 12 rounds. 
 
 ## ElGamal Cryptographic System
 
