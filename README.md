@@ -53,13 +53,37 @@ Then the output of this step will be the input of the Theta function in the next
 
 ### Overview
 
+The user interface of the ElGamal demo is as follows:
+
+![elgaml](report_images/elgamal.png)
+
+In the above image, there are three main parts — key generation, encryption and decryption, and multiplication over encrypted data. The program gives a simplified demonstration on how the ElGamal Cryptographic System works. Since this program is only for demonstration, the code should **never** be used in any production systems.
+
 ### Key Generation
+
+Like any other public key crypto-systems, the first thing to do is key generation.
+
+![keygen](report_images/keygen.png)
+
+To generate the public key, the user first needs to pick a prime number `P` along with its prime order `Q`. Then the user needs to enter a generator of the cyclic group given the prime order `Q`. Private key `X` can be entered or it will be generated randomly by the program, and `X` has to be in the range of `[1, Q-1]`. After that, the user can click the **Generate** button to compute the public key. The parameter `Y` of the public key is calculated as shown in the above image. `P`, `G`, and `Y` together form the public key.
 
 ### Encryption and Decryption
 
+To encrypt a message, the message has to be transformed into a number that's less than the prime number `P`, and a random number `k` within the range of `[1, Q-1]` also needs to be selected.
+
+![enc_dec](report_images/enc_dec.png)
+
+In the above image, the user enters a message `M` represented in decimal format and a `k` will be randomly generated if not entered. Once the **Encrypt** button is clicked. `C1` and `C1` will be computed with the public key using the formulas in the image. `C1` and `C1` together constitute the cipher text of the message `M`.
+
+When the user clicks the **Decrypt** button, the cipher text will be decrypted with private key `X` using the formula shown in the image. We can confirm that the decrypted message is indeed the same as the original message.
+
 ### Multiplication Over Encrypted Data
 
+ElGamal is homomorphic, which means we can perform calculations on the encrypted data and when decrypted, the result would be the same as if we were doing the calculations on the plain data.
 
+![multiply](report_images/multiply.png)
+
+To demonstrate this, the user can pick five messages in decimal format (`N0`, `N1`, ..., `N4`) and then the random number `k` will be generated for each of the message if not entered. Once the user clicks the **Encrypt All** button, the five messages will be encrypted using the same public key that's computed earlier. Then if the user clicks the **Multiply and Compare** button, the program will first multiply the five encrypted messages and decrypt the product of the multiplication with the private key `X`. Then the program will also computes the product of plain numbers of those five messages. In the end, it's clear to see in the above image that the product of the plain numbers and the decrypted product of the encrypted numbers are the same.
 
 
 
